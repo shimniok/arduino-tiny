@@ -41,7 +41,7 @@ void pinMode(uint8_t pin, uint8_t mode)
 
 	// JWS: can I let the optimizer do this?
 	reg = portModeRegister(port);
-  out = portOutputRegister(port);
+	out = portOutputRegister(port);
 
 	if (mode == INPUT) {
 		uint8_t oldSREG = SREG;

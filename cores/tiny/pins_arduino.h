@@ -38,7 +38,7 @@
 #define PORT_D_ID 4
 #endif
 
-#if defined( __AVR_ATtinyX4__ )
+#if defined( __AVR_ATtinyX4__ ) || defined( __AVR_ATtinyX41__ )
 #define PORT_A_ID 1
 #define PORT_B_ID 2
 #endif
@@ -55,6 +55,8 @@
 #define TIMER0B 2
 #define TIMER1A 3
 #define TIMER1B 4
+#define TIMER2A 5 /* ATtinyX41 */
+#define TIMER2B 6 /* ATtinyX41 */
 
 //changed it to uint16_t to uint8_t
 extern const uint8_t PROGMEM port_to_mode_PGM[];
@@ -89,7 +91,7 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define digitalPinToPCMSKbit(p) (p)
 #endif
 
-#if defined(__AVR_ATtinyX4__)
+#if defined(__AVR_ATtinyX4__) || defined(__AVR_ATtinyX41__)
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) <= 10) ? (&GIMSK) : ((uint8_t *)NULL))
 #define digitalPinToPCICRbit(p) (((p) <= 2) ? PCIE1 : PCIE0)
 #define digitalPinToPCMSK(p)    (((p) <= 2) ? (&PCMSK1) : (((p) <= 10) ? (&PCMSK0) : ((uint8_t *)NULL)))
